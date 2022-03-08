@@ -1,0 +1,122 @@
+.accept-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .card {
+    z-index: 11;
+    background-color: transparent;
+    border: 0;
+    max-width: 400px;
+    min-width: 400px;
+  }
+  img {
+    border-radius: 9px 9px 0 0;
+  }
+  .info {
+    padding: 20px;
+    border-radius: 0 0 9px 9px;
+    background-color: #fff;
+    h3 {
+      margin: 0;
+    }
+    .address {
+      margin-bottom: 8px;
+    }
+    .date {
+      display: flex;
+    }
+  }
+
+  .contacts {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    .call {
+      background-color: #F47F1F;
+      margin-left: 10px;
+    }
+    .message {
+      background-color: #3398CC;
+    }
+    .message, .call {
+      width: 142px;
+      padding: 6px;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 18px;
+      display: block;
+    }
+    i {
+      padding: 0 3px;
+    }
+  }
+  .buttons {
+    .accept,
+    .decline {
+      width: 100%;
+      border-radius: 4px;
+      padding: 10px;
+      text-align: center;
+      margin-top: 5px;
+      border: 0;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .accept {
+      background-color: #19F4A5;
+    }
+    .decline {
+      background-color: #fd3030;
+    }
+  }
+
+  .accepted-info {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 0 0 9px 9px;
+    h5 {
+      margin: 10px 0 30px 0;
+    }
+    .buttons {
+      .accept {
+        text-decoration: none;
+        display: block;
+        color: black;
+      }
+      .cancel-link {
+        margin-top: 20px;
+        text-align: center;
+        display: block;
+      }
+    }
+  }
+}
+.date-details {
+    padding: 10px;
+    border: 1px solid #dedcdc;
+    max-height: 160px;
+    overflow-y: auto;
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: block;
+  opacity: 0.8;
+}
+.will-pay {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}

@@ -1,0 +1,93 @@
+.main-navbar {
+  min-height: 88px;
+  background-color: #f4f7f9;
+  margin-bottom: 0;
+  .home i {
+    color: #f47f1e;
+    font-size: 23px;
+    background: #f3e3d5;
+    border-radius: 100%;
+    padding: 6px 8px;
+    transition: 1s all;
+    &:hover {
+      background: #f47f1e;
+      color: #f3e3d5;
+    }
+  }
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    top: -10%;
+    z-index: 9;
+    transform: translateX(-50%);
+    color: $dirtyPurple;
+    font-size: 55px;
+    letter-spacing: 3px;
+    font-family: $font-raleway;
+  }
+  .persondd {
+    .dropdown-toggle {
+      i {
+        font-size: 29px;
+        color: #4d4c4d;
+        background: #dbdcde;
+        border-radius: 100%;
+        padding: 7px 9px;
+      }
+      &:after {
+        display:none;
+      }
+    }
+    .hi {
+      font-weight: 500;
+      color: $dirtyPurple;
+      border-bottom: 1px solid $dirtyGrey;
+    }
+  }
+  .messagesdd {
+    .dropdown-toggle {
+      i {
+        font-size: 23px;
+        color: #4d4c4d;
+        background: #d4e7f1;
+        border-radius: 100%;
+        padding: 5px;
+        margin-top: 5px;
+      }
+      &:after {
+        display:none;
+      }
+    }
+  }
+}
+
+@media(max-width:767px) {
+  .main-navbar {
+    min-height: 70px;
+    .dropdown-menu {
+      background-color: #f4f7f9;
+      border: none;
+    }
+    .navbar-brand {
+      font-size: 40px;
+      top: -8px;
+    }
+    .home {
+      display: none;
+    }
+    .persondd {
+      position: absolute;
+      right: 9px;
+      top: 9px;
+      .dropdown-menu {
+        position: absolute;
+        width: 201px;
+        right: -9px;
+        top: 56px;
+        .dropdown-item {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.license-form {
+  width: 100%;
+}
+
+.licenses {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  border-bottom: 1px solid #DEE2E6;
+
+  .license-tab {
+    display: flex;
+    border: 1px solid #DEE2E6;
+  }
+  .license-tab:hover {
+    background-color: #F8FAFC;
+    cursor: pointer;
+  }
+  .active {
+    border-left: 1px solid #DEE2E6;
+    border-right: 1px solid #DEE2E6;
+    border-top: 1px solid #DEE2E6;
+    background-color: #F8FAFC;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: -1px;
+  }
+  .tab-name {
+    /*width: 80%;*/
+    display: block;
+    padding: 8px;
+
+    .fa-plus {
+      color: #CED4DA;
+      padding: 0 5px;
+    }
+  }
+  .delete-license-button {
+    display: block;
+    font-size: 12px;
+    line-height: 3.3;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: 100;
+    color: #CED4DA;
+  }
+  .delete-license-button:hover {
+    color: #4D4C4D;
+  }
+  .tab-error {
+    color: red;
+    display: block;
+    text-align: center;
+    width: 100%;
+    line-height: 2.8;
+  }
+}
+
+.tab-content {
+  width: 100%;
+  margin-bottom: 20px;
+  .license-file {
+    position: relative;
+    height: 30px;
+
+    label {
+      z-index: 1;
+      top: 0;
+      position: absolute;
+      right: 0;
+      left: 0;
+      height: calc(2.19rem + 2px);
+      padding: 0.375rem 0.75rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #495057;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+    }
+
+    label:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      display: block;
+      height: 2.19rem;
+      line-height: 1.6;
+      color: #495057;
+      background-color: #e9ecef;
+      border-left: inherit;
+      border-radius: 0 0.25rem 0.25rem 0;
+      font-family: FontAwesome;
+      font-size: 15px;
+      padding: 6px 6px;
+      content: "\F0C6" !important;
+    }
+
+    input {
+      z-index: 2;
+      width: 100%;
+      top: 0;
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
+  .manual-enter {
+    display: block;
+    text-align: center;
+    color: #e93161;
+    font-weight: 500;
+    width: 100%;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .manual-enter:hover {
+    color: #f37c21;
+  }
+
+  .license-data {
+    margin-top: 20px;
+  }
+}
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>lock</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Email-Marketing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="RESET-MY-PASSWORD" transform="translate(-268.000000, -128.000000)">
+            <g id="lock" transform="translate(268.000000, 128.000000)">
+                <circle id="Oval" fill="#3398CC" cx="32" cy="32" r="32"></circle>
+                <g id="icon/line/people" transform="translate(13.000000, 13.000000)" fill-rule="nonzero">
+                    <rect id="Border" fill-opacity="0" fill="#4E4E4E" x="0" y="0" width="38" height="38"></rect>
+                    <path d="M17.4166667,19 C18.6833333,19 18.05,19 20.5833333,19 C25.3333333,19 31.6666667,21.1770833 31.6666667,21.1770833 C31.6666667,21.1770833 31.6666667,25.7291667 31.6666667,34.8333333 L6.33333333,34.8333333 C6.33333333,25.7291667 6.33333333,21.1770833 6.33333333,21.1770833 C6.33333333,21.1770833 12.9191825,19 17.4166667,19 Z" id="Rectangle" stroke="#FFFFFF" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M11.0833333,19 L11.0833333,10.2916667 C11.0833333,6.35663782 14.6277457,3.16666667 19,3.16666667 C23.3722543,3.16666667 26.9166667,6.35663782 26.9166667,10.2916667" id="Path" stroke="#FFFFFF" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

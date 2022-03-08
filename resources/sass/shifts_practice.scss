@@ -1,0 +1,53 @@
+.hire {
+  .request-provider {
+    display: block;
+    max-width: 338px;
+    width:100%;
+    line-height: 40px;
+    height: 57px;
+    margin: 40px auto;
+    background: linear-gradient(to right, #e93161, #f37c21);
+    box-shadow: 2px 2px 16px 0 #e07c88;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 7px;
+    padding: 10px 5px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .request-provider:hover {
+    background: linear-gradient(to right, #f37c21, #e93161);
+  }
+
+  .plus-icon {
+    background-color: #19f4a5;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-family: serif;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    margin: -8px 16px;
+    font-weight: 100;
+    font-size: 34px;
+  }
+
+  .little-button {
+    display: inline-flex;
+  }
+}
+.onechildmap {
+    .childa {
+        font-size: 18px;
+        text-decoration: none;
+        color: #424242;
+        .person {
+            color: #f37c21;
+        }
+        &:hover {
+            color: #f37c21;
+        }
+    }
+}

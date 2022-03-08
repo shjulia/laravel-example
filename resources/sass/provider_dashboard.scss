@@ -1,0 +1,114 @@
+.prov-dash {
+  .onoff {
+    &.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+      background-color: #f4f7f9;
+      border: 1px solid #e3eaee;
+      width: 134px;
+      height: 26px;
+      content: 'Offline';
+      color: #aeafaf;
+      text-align: left;
+    }
+    &.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+      background-color: #61f5a4;
+      content: 'Online';
+      width: 62px;
+      height: 22px;
+      left: 58px;
+      text-align: center;
+    }
+    &.custom-switch .custom-control-label::before {
+      left: 0;
+      width: 134px;
+      text-align: right;
+      height: 26px;
+      content: 'Online';
+      color: #aeafaf;
+    }
+    &.custom-switch .custom-control-label::after {
+      left: 2px;
+      content: 'Offline';
+      width: 62px;
+      height: 22px;
+      text-align: center;
+    }
+  }
+  .title-label {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .upgrate {
+    margin-bottom: 15px;
+    display: block;
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .earned {
+    text-align: right;
+    font-size: 24px;
+    margin-top:4px;
+  }
+}
+.custom-marker-div {
+  border-radius: 100%;
+
+  &::after {
+    content: '';
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 15px 10px 0 10px;
+    position: absolute;
+    bottom: -12px;
+    left: 14px;
+  }
+
+  &::before {
+      content: "";
+      height: 48px;
+      width: 49px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+  }
+
+  &.green {
+    border: 2px solid #61f5a4;
+    &::after {
+      border-color: #61f5a3 transparent transparent transparent;
+    }
+  }
+  &.red {
+    border: 2px solid red;
+    &::after {
+      border-color: red transparent transparent transparent;
+    }
+  }
+  &.blue {
+    border: 2px solid blue;
+    &::after {
+      border-color: blue transparent transparent transparent;
+    }
+  }
+
+
+  .custom-marker {
+    height:45px;
+    width:45px;
+    border-radius: 100%;
+  }
+}
+.info-window-content {
+  p {
+    font-size: 17px;
+  }
+  .form-button {
+    padding: 2px;
+    font-size: 15px;
+  }
+}

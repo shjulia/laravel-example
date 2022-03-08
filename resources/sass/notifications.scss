@@ -1,0 +1,43 @@
+.notification-dropdown {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.toast {
+  position: relative;
+  z-index: 9;
+}
+
+.notification {
+  width: 325px;
+  margin: 0 8px 8px 8px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  .notification-icon {
+    font-size: 30px;
+    color: $orangeG;
+  }
+
+  .notification-data, .notification-from {
+    font-size: 13px;
+    color: $dirtyPurple;
+    font-style: italic;
+  }
+}
+#messagesDropdown {
+  width: 40px;
+}
+.new-notifications{
+  &:after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    left: 30px;
+    background-color: $redG;
+  }
+}

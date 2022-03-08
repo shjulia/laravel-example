@@ -1,0 +1,6 @@
+
+*/5 * * * * /usr/bin/php /var/www/artisan shifts:finished
+
+*/30 * * * * /usr/bin/php /var/www/artisan shifts:start-matching
+
+*/30 * * * * /usr/bin/php /var/www/artisan signup:emails

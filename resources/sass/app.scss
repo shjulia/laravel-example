@@ -1,0 +1,30 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Hind:normal,medium,semibold');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import "~font-awesome/scss/font-awesome.scss";
+@import '~vue-loading-overlay/dist/vue-loading.css';
+@import "~select2/dist/css/select2.css";
+@import "~summernote/dist/summernote-bs4.css";
+@import "_general";
+
+@import "auth/auth";
+@import "auth/details";
+@import "auth/onboarding";
+@import "main_navbar";
+@import "main";
+@import "referral";
+@import "provider_dashboard";
+@import "shifts_practice";
+@import "register/provider/licence-page";
+@import "register/provider/industry-page";
+@import "notifications";
+@import "shift/provider/index-page";
+@import "shift/provider/accept-page";
+@import '~vue-slider-component/theme/default.css';

@@ -1,0 +1,41 @@
+.form-group.mat {
+  .position {
+    position: relative;
+
+    &.sub {
+        margin-left: 15%;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    label {
+      color: #342B5D;
+      position: unset;
+      cursor: pointer;
+      width: 100%;
+      background-color: #F4F7F9;
+      border: 1px solid #EBF0F4;
+      padding: 10px;
+      z-index: 10;
+
+      &.disable {
+          color: #999;
+          cursor: default;
+      }
+    }
+    label.active {
+      background-color: #61F5A4;
+      color: #fff;
+      border-color: #b7b7b7;
+    }
+    input {
+      z-index: 1;
+      position: absolute;
+      top: 20px;
+      opacity: 0;
+    }
+  }
+  .position:first-child {
+    margin-top: 20px;
+  }
+}

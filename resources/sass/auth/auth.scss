@@ -1,0 +1,228 @@
+@import "_progress";
+
+.auth-container {
+  background: #fff;
+  width: 55%;
+  min-height: 100vh;
+  display: flex;
+
+  .auth-form {
+    padding: 30px 50px;
+    max-width: 439px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 0 35px rgba(51,152,204,0.12);
+
+    &.auth-long-form {
+      padding: 0 50px 20px;
+    }
+
+    .back {
+      position: absolute;
+      top: -35px;
+      left: 0;
+      font-weight: 500;
+      font-size: 15px;
+      color: $dirtyPurple;
+      text-decoration: none;
+      &:hover {
+        color: $dirtyGrey;
+      }
+    }
+
+    h1 {
+      font-family: $font-raleway;
+      font-size: 36px;
+      color: rgb(31,32,33);
+        &.h1_little {
+            font-size: 27px;
+        }
+    }
+    .h1_subtitle {
+      color: $dirtyPurple;
+      font-size:15px;
+    }
+    .forgot {
+      text-align: right;
+      margin-top: -18px;
+      a {
+        color: $dirtyGrey;
+        text-decoration: underline;
+        text-transform: uppercase;
+        font-size:13px;
+        &:hover {
+          color: $dirtyPurple;
+        }
+      }
+    }
+    .after-button {
+      text-align: center;
+      margin-top: 15px;
+      color: $dirtyGrey;
+      font-size: 15px;
+    }
+  }
+}
+.wraper-login {
+  background-image: url(/img/login.jpeg);
+}
+.little-custom-file-label {
+  padding-top: 10px;
+  padding-left: 6px;
+  font-size: 13px;
+  line-height: 13px;
+  &::after {
+    font-size:15px;
+    padding: 6px 6px;
+    font-family: FontAwesome;
+    content: "\f0c6" !important;
+  }
+}
+.fileinput-button button{
+  padding: 3px;
+}
+.step-user-base {
+  .user-type {
+    width: 100%;
+    border: 1px solid $dirtyGrey;
+    position: relative;
+    text-align: center;
+    border-radius: 7px;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    &.active {
+      border: 1px solid $redG;
+      .cont {
+        i {
+          color: $redG;
+          background: #fad6e1;
+        }
+      }
+    }
+
+    .custom-control {
+      position: absolute;
+      right: -14px;
+      top: -12px;
+    }
+    .cont {
+      i {
+        font-size: 26px;
+        padding: 6px 10px;
+        background: #dee2e6;
+        color: $dirtyPurple;
+        border-radius: 100%;
+      }
+      p {
+        font-weight: 500;
+        font-size: 15px;
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.autocomplete {
+  margin-top: -16px;
+  padding: 10px;
+  border: 1px solid #b5b4b5;
+  border-top: none;
+  border-radius: 0 0 8px 9px;
+  a {
+    display: block;
+    color: #5d5751;
+  }
+  hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+.needs {
+  background-color: #f3f7fa;
+  h1 {
+    background: #fff;
+    text-align: center;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 500;
+  }
+  h2 {
+    /*margin-top: 20px;*/
+    font-size: 26px;
+  }
+  h3 {
+    margin-top: 20px;
+    font-size: 23px;
+  }
+  .h1_subtitle {
+    font-size: 19px;
+  }
+  .form-button {
+    width:100%;
+    max-width: initial !important;
+    font-size:21px;
+    padding: 9px;
+    margin: 14px auto -14px !important;
+  }
+  .row-need {
+    background: #fff;
+    padding-top: 12px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+    .icon {
+      font-size: 20px;
+      border-radius: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      &.blue {
+        color: #3398cc;
+        background-color: #ddeef6;
+      }
+      &.orange {
+        color: #f47f1e;
+        background-color: #fdeadb;
+      }
+      &.grey {
+        color: #4c4c4c;
+        background-color: #f3f3f3;
+      }
+    }
+    .title {
+      font-weight: 500;
+      font-size: 19px;
+    }
+    .desc {
+      color: #5b5b5b;
+      font-size: 16px;
+    }
+    .custom-checkbox {
+      position: absolute;
+      top: 0;
+      right: 7px;
+    }
+  }
+}
+@media(max-width:1000px) {
+  .wraper {
+    background: #fff;
+  }
+  .auth-container {
+    width: 100%;
+  }
+}
+@media(max-width:500px) {
+  .auth-container {
+    .auth-form {
+      padding: 20px;
+      h1 {
+        font-size: 28px;
+      }
+    }
+  }
+}

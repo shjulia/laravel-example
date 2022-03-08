@@ -1,0 +1,32 @@
+
+*/5 * * * * /usr/bin/php /var/www/html/artisan shifts:finished
+
+*/30 * * * * /usr/bin/php /var/www/html/artisan shifts:start-matching
+
+*/30 * * * * /usr/bin/php /var/www/html/artisan signup:emails
+
+*/15 * * * * /usr/bin/php /var/www/html/artisan shifts:reminder
+
+0 0 * * 3 /usr/bin/php /var/www/html/artisan pay:provider
+
+*/5 * * * * /usr/bin/php /var/www/html/artisan shifts:almost-started
+
+0 */12 * * * /usr/bin/php /var/www/html/artisan bonus:after40h
+
+0 15 * * * /usr/bin/php /var/www/html/artisan remind:hire-first-provider
+
+0 */6 * * * /usr/bin/php /var/www/html/artisan provider:notify-missing-out-shifts
+
+0 0 * * 3 /usr/bin/php /var/www/html/artisan bonus:pay-provider
+
+0 */2 * * * /usr/bin/php /var/www/html/artisan shifts:feedback-check
+
+0 12 * * * /usr/bin/php /var/www/html/artisan referral:missing
+
+0 0 * * * /usr/bin/php /var/www/html/artisan remind:hire-first-provider-middle
+
+0 10 * * * /usr/bin/php /var/www/html/artisan remind:continue-hiring
+
+0 12 * * * /usr/bin/php /var/www/html/artisan remind:after-account-approval
+
+0 15 * * 0 /usr/bin/php /var/www/html/artisan provider:upload-profile-picture

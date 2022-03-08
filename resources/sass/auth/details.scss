@@ -1,0 +1,360 @@
+.detailsh2 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 22px;
+  color: #000;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.detailsh4 {
+  font-weight: 600;
+  font-size: 17px;
+  color: #000;
+  margin-top: 25px;
+}
+.card, .hire {
+  label {
+    color: $dirtyPurple;
+    font-size: 15px;
+    font-weight: 500;
+    padding-bottom: 0;
+  }
+  .form-button {
+    color: $dirtyPurple;
+    background: #61f5a4;
+    margin: 28px auto 5px;
+    max-width: 180px;
+    display: block;
+    padding: 14px;
+  }
+  .skip-button {
+    background: #e2e2e2;
+  }
+  .back {
+    font-weight: 500;
+    font-size: 15px;
+    color: $dirtyPurple;
+    text-decoration: none;
+    &:hover {
+      color: $dirtyGrey;
+    }
+  }
+}
+.stripe-card-div {
+  text-align: center;
+  .stripe-card {
+    margin: 25px auto;
+    width: 300px;
+    border: 1px solid grey;
+    font-family: $font-raleway;
+    &.complete {
+      border-color: green;
+    }
+  }
+}
+.form-btn-light {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  max-width: 180px;
+  display: block;
+  padding: 14px;
+  margin: 10px auto;
+  outline: none !important;
+  border: none;
+  &:hover {
+    color: #212529;
+  }
+}
+
+.custom-switch {
+  .custom-control-label {
+    &::before {
+      left: 0;
+    }
+    &::after {
+      left: 2px;
+    }
+  }
+}
+.custom-switch {
+  .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #f4f7f9;
+    border: 1px solid #e3eaee;
+  }
+  .custom-control-input:checked ~ .custom-control-label::after {
+    background-color: #61f5a4;
+  }
+}
+.details {
+  .holidays-div .row{
+    margin-bottom: 5px;
+  }
+  .holiday-label {
+    font-weight: 500;
+    font-size:17px;
+    color: #b5b4b5;
+  }
+  .custom-switch {
+    margin-top: 5px;
+  }
+  .holidays-div .custom-checkbox .custom-control-label {
+    &::before {
+      left: 16px;
+    }
+    &::after {
+      left: 16px;
+    }
+  }
+  .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #61f5a4;
+    border: 1px solid #61f5a4;
+  }
+}
+.av-time-div {
+  background: #f4f7f9;
+  padding: 6px;
+  margin: 10px -20px;
+
+  i.grey {
+    background: #dbdcde;
+    font-size: 19px;
+    padding: 5px 7px;
+    border-radius: 100%;
+    margin-top: 8px;
+    &.fa-pencil {
+      cursor: pointer;
+      &:hover {
+        background: #7d8293;
+      }
+    }
+  }
+  .pf {
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 0;
+    span {
+      color: #c6c6c8;
+      font-size: 13px;
+    }
+  }
+  .set-time {
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-bottom: 6px;
+    display: block;
+    &:hover {
+      color: #999;
+    }
+  }
+  .card {
+    border-radius: 10px;
+    .header-card {
+      color: #000;
+      font-size: 17px;
+    }
+  }
+  .cancel {
+    margin-top: 15px;
+    font-size: 17px;
+  }
+  .new-interval {
+    cursor: pointer;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 20px;
+    color: #3398cc;
+    font-size: 17px;
+    &:hover {
+      color: #000;
+    }
+  }
+  .remove-a {
+    cursor: pointer;
+    margin-top: 34px;
+  }
+  .row_av_time {
+    position: relative;
+    .day {
+      font-weight: 500;
+      font-size: 17px;
+    }
+    .time_base {
+      font-weight: 500;
+      font-size: 17px;
+    }
+    .time_a {
+      color: #b5b4b5;
+      font-weight: 500;
+      font-size: 17px;
+    }
+    .arrow-time {
+      margin-left: 10px;
+      margin-right: 10px;
+      color: #bbb4b4;
+    }
+    .clock-time {
+      cursor: pointer;
+      color: #000;
+      i {
+        font-size:24px;
+      }
+      span {
+        font-size: 17px;
+        margin-left: 7px;
+      }
+      &:hover {
+        color: #464646;
+      }
+    }
+    .modal-content {
+      border: 2px solid #e2eaed;
+      border-radius: 11px;
+      .modal-body {
+        padding: 0;
+
+        .edit-block {
+          /*position: absolute;
+          top: 30px;
+          right: 11px;
+          max-width: 315px;*/
+          width: 100%;
+          padding-left: 15px;
+
+          z-index: 9;
+          .invalid-feedback, .valid-feedback {
+            display: inline-block;
+          }
+          .form-group {
+            margin-bottom: 0;
+          }
+          .remove-a {
+            color: #3398cc;
+            font-size: 24px;
+            margin-top: 17px;
+            &:hover {
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}
+.one-member {
+  background-color: #f4f7f9;
+  margin: 0 -20px;
+  padding: 10px;
+  border-top: 1px solid #e7eaec;
+  border-bottom: 1px solid #e7eaec;
+  .name {
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 0;
+  }
+  .email {
+    color: #b5b4b5;
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+  .role {
+    font-size: 12px;
+    border: 1px solid #61f5a4;
+    background-color: #c8f6e8;
+    border-radius: 20px;
+    margin-top: 10px;
+    display: block;
+    max-width: 160px;
+    text-align: center;
+  }
+  .edit {
+    color: #000;
+    background-color: #dbdcde;
+    border-radius: 100%;
+    &:hover {
+      color: #fff;
+      background-color: #61f5a4;
+    }
+  }
+}
+.add-member {
+  color: #000;
+  border: none !important;
+  font-size: 15px;
+  margin-top: 15px;
+  display: block;
+
+  i {
+    border: 2px solid #61f5a4;
+    border-radius: 100%;
+    margin-right: 5px;
+    padding: 3px 5px;
+  }
+  &:hover{
+    color: #000;
+    text-decoration: underline;
+  }
+}
+.croppa-div {
+  text-align: center;
+  .croppa-container {
+    background-color: transparent;
+    canvas {
+      border-radius: 100%;
+      border: 3px solid #56dea8;
+    }
+    svg.icon-remove {
+      top: 10px !important;
+      right: 5px !important;
+      border:none;
+    }
+  }
+}
+.d-cropper-div {
+  position: relative;
+  .img-div {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 3px solid #56dea8;
+    background-color: #d1fded;
+    cursor: pointer;
+    img {
+      max-height: 100%;
+      height: 100%;
+    }
+    i {
+      font-size: 45px;
+      margin-top: 36%;
+    }
+  }
+  #pick-avatar {
+    margin-top: -32px;
+  }
+  .avatar-cropper .avatar-cropper-img-input {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    color: #ffff;
+    opacity: 0;
+  }
+}
+
+.details-autocomplete {
+  margin-bottom: 15px;
+}
+
+.card {
+  .bank-details {
+    margin: 60px 0;
+  }
+}

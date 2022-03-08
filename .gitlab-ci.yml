@@ -1,0 +1,162 @@
+image: docker:latest
+
+variables:
+  GIT_CLONE_PATH: $CI_BUILDS_DIR/1488/$CI_PROJECT_PATH
+
+before_script:
+  - echo ${USER}
+
+stages:
+  #- test
+  - deploy
+
+step-deploy:
+  stage: deploy
+  script:
+    - sleep 5
+    - echo ${USER}
+    - docker ps
+    - docker stop $(docker ps -aq) 2>/dev/null || true
+    - docker rm $(docker ps -aq) 2>/dev/null || true
+    - docker system prune --volumes -a -f
+    - docker-compose down -v --remove-orphans
+    - docker ps
+    - docker-compose -f docker-compose-production.yml up --build -d
+    - docker ps
+    - pwd
+    - sleep 5
+    - docker-compose exec -T php-cli php artisan migrate
+    - docker-compose exec -T php-cli php artisan db:seed --class=DatabaseProdSeeder
+    - docker-compose exec -T websocket-nodejs pm2 start /var/www/websocket/server.js
+  #when: manual
+  only:
+    - master
+  variables:
+    GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_CONCURRENT_ID/$CI_PROJECT_PATH
+    APP_NAME: ${APP_NAME}
+    APP_ENV: ${APP_ENV}
+    APP_KEY: ${APP_KEY}
+    APP_DEBUG: ${APP_DEBUG}
+    APP_URL: ${APP_URL}
+    APP_ALLOW: ${APP_ALLOW}
+    LOG_CHANNEL: ${LOG_CHANNEL}
+    DB_CONNECTION: ${DB_CONNECTION}
+    DB_HOST: ${DB_HOST}
+    DB_PORT: ${DB_PORT}
+    DB_DATABASE: ${DB_DATABASE}
+    DB_USERNAME: ${DB_USERNAME}
+    DB_PASSWORD: ${DB_PASSWORD}
+    BROADCAST_DRIVER: ${BROADCAST_DRIVER}
+    CACHE_DRIVER: ${CACHE_DRIVER}
+    QUEUE_CONNECTION: ${QUEUE_CONNECTION}
+    SESSION_DRIVER: ${SESSION_DRIVER}
+    SESSION_LIFETIME: ${SESSION_LIFETIME}
+    REDIS_HOST: ${REDIS_HOST}
+    REDIS_PASSWORD: ${REDIS_PASSWORD}
+    REDIS_PORT: ${REDIS_PORT}
+    MAIL_DRIVER: ${MAIL_DRIVER}
+    MAIL_HOST: ${MAIL_HOST}
+    MAIL_PORT: ${MAIL_PORT}
+    MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+    MAIL_FROM_NAME: ${MAIL_FROM_NAME}
+    MAILGUN_DOMAIN: ${MAILGUN_DOMAIN}
+    MAILGUN_SECRET: ${MAILGUN_SECRET}
+    SOURCE_DIR: ${SOURCE_DIR}
+    STRIPE_PUBLIC_KEY: ${STRIPE_PUBLIC_KEY}
+    STRIPE_PRIVATE_KEY: ${STRIPE_PRIVATE_KEY}
+    CHECKR_KEY: ${CHECKR_KEY}
+    CHECKR_BASE_URL: ${CHECKR_BASE_URL}
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+    AWS_BUCKET: ${AWS_BUCKET}
+    AWS_URL: ${AWS_URL}
+    AWS_PATH: ${AWS_PATH}
+    DISTANCE_MATRIX_API_KEY: ${DISTANCE_MATRIX_API_KEY}
+    PLACES_API_KEY: ${PLACES_API_KEY}
+    MIX_SOCKET_SERVER_URL: ${MIX_SOCKET_SERVER_URL}
+    VAPID_PUBLIC_KEY: ${VAPID_PUBLIC_KEY}
+    VAPID_PRIVATE_KEY: ${VAPID_PRIVATE_KEY}
+    MIX_VAPID_PUBLIC_KEY: ${MIX_VAPID_PUBLIC_KEY}
+    DWOLLA_APP_KEY: ${DWOLLA_APP_KEY}
+    CHECKR_KEY: ${CHECKR_KEY}
+    CHECKR_BASE_URL: ${CHECKR_BASE_URL}
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+    AWS_BUCKET: ${AWS_BUCKET}
+    AWS_URL: ${AWS_URL}
+    AWS_PATH: ${AWS_PATH}
+    DISTANCE_MATRIX_API_KEY: ${DISTANCE_MATRIX_API_KEY}
+    PLACES_API_KEY: ${PLACES_API_KEY}
+    DWOLLA_APP_KEY: ${DWOLLA_APP_KEY}
+    DWOLLA_APP_SECRET: ${DWOLLA_APP_SECRET}
+    DWOLLA_API_CLIENT: ${DWOLLA_API_CLIENT}
+    APP_FUNDING_SOURCE: ${APP_FUNDING_SOURCE}
+    DEVELOPER_EMAIL: ${DEVELOPER_EMAIL}
+    MANAGER_EMAIL: ${MANAGER_EMAIL}
+
+step-test:
+  stage: test
+  script:
+    - sleep 5
+    - echo ${USER}
+    - pwd
+    - docker ps
+    - docker stop $(docker ps -aq --filter "name=testboon_mysql_1") 2>/dev/null || true
+    - docker rm $(docker ps -aq --filter "name=testboon_mysql_1") 2>/dev/null || true
+    - docker stop $(docker ps -aq --filter "name=testboon_php-cli_1") 2>/dev/null || true
+    - docker rm $(docker ps -aq --filter "name=testboon_php-cli_1") 2>/dev/null || true
+    - docker ps
+    - docker-compose -f docker-compose-test.yml -p testboon up --build -d
+    - docker ps
+    - pwd
+    - sleep 10
+    - docker exec -i $(docker ps -aq --filter "name=testboon_php-cli_1") php artisan migrate
+    - docker exec -i $(docker ps -aq --filter "name=testboon_php-cli_1") php artisan db:seed --class=DatabaseProdSeeder
+    - docker exec -i $(docker ps -aq --filter "name=testboon_php-cli_1") vendor/bin/phpunit
+  #when: manual
+  only:
+    - master
+  variables:
+    APP_NAME: ${APP_NAME}
+    APP_ENV: ${APP_ENV}
+    APP_KEY: ${APP_KEY}
+    APP_URL: ${APP_URL}
+    APP_ALLOW: ${APP_ALLOW}
+    LOG_CHANNEL: ${LOG_CHANNEL}
+    DB_CONNECTION: ${DB_CONNECTION}
+    DB_HOST: ${DB_HOST}
+    DB_PORT: ${DB_PORT}
+    DB_DATABASE: ${DB_DATABASE}
+    DB_USERNAME: ${DB_USERNAME}
+    DB_PASSWORD: ${DB_PASSWORD}
+    CACHE_DRIVER: ${CACHE_DRIVER}
+    SOURCE_DIR: ${SOURCE_DIR}
+    STRIPE_PUBLIC_KEY: ${STRIPE_PUBLIC_KEY}
+    STRIPE_PRIVATE_KEY: ${STRIPE_PRIVATE_KEY}
+    CHECKR_KEY: ${CHECKR_KEY}
+    CHECKR_BASE_URL: ${CHECKR_BASE_URL}
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+    AWS_BUCKET: ${AWS_BUCKET}
+    AWS_URL: ${AWS_URL}
+    AWS_PATH: ${AWS_PATH}
+    DISTANCE_MATRIX_API_KEY: ${DISTANCE_MATRIX_API_KEY}
+    PLACES_API_KEY: ${PLACES_API_KEY}
+    DWOLLA_APP_KEY: ${DWOLLA_APP_KEY}
+    CHECKR_KEY: ${CHECKR_KEY}
+    CHECKR_BASE_URL: ${CHECKR_BASE_URL}
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+    AWS_BUCKET: ${AWS_BUCKET}
+    AWS_URL: ${AWS_URL}
+    AWS_PATH: ${AWS_PATH}
+    DISTANCE_MATRIX_API_KEY: ${DISTANCE_MATRIX_API_KEY}
+    PLACES_API_KEY: ${PLACES_API_KEY}
+    DWOLLA_APP_KEY: ${DWOLLA_APP_KEY}
+    DWOLLA_APP_SECRET: ${DWOLLA_APP_SECRET}
+    DWOLLA_API_CLIENT: ${DWOLLA_API_CLIENT}
+    APP_FUNDING_SOURCE: ${APP_FUNDING_SOURCE}

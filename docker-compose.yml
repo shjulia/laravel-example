@@ -1,0 +1,98 @@
+version: '3'
+services:
+    dental-nginx:
+        build:
+            context: docker/development
+            dockerfile: nginx/Dockerfile
+        volumes:
+            - ./:/var/www
+        ports:
+            - "443:443"
+            - "8090:80"
+        depends_on:
+            - dental-php-fpm
+            - dental-websocket-nodejs
+
+    dental-php-fpm:
+        build:
+            context: docker/development
+            dockerfile: php/fpm/Dockerfile
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - dental-mysql
+            - dental-redis
+            - dental-websocket-nodejs
+        environment:
+            DB_PORT: 3306
+            DB_HOST: dental-mysql
+            REDIS_PORT: 6379
+            REDIS_HOST: dental-redis
+
+    dental-php-cli:
+        build:
+            context: docker/development
+            dockerfile: php/cli/Dockerfile
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - dental-mysql
+            - dental-redis
+            - dental-websocket-nodejs
+        environment:
+            DB_PORT: 3306
+            DB_HOST: dental-mysql
+            REDIS_PORT: 6379
+            REDIS_HOST: dental-redis
+        working_dir: /var/www
+        tty: true
+
+    dental-mysql:
+        build:
+            context: docker/development
+            dockerfile: mysql/Dockerfile
+        volumes:
+            - ./storage/docker/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: app
+            MYSQL_PASSWORD: secret
+            MYSQL_DATABASE: app
+        ports:
+            - "33061:3306"
+
+    dental-nodejs:
+        image: node:10.11-jessie
+        volumes:
+            - ./:/var/www
+        working_dir: /var/www
+        tty: true
+
+    dental-redis:
+        image: redis:3.0
+        #ports:
+        #    - "63791:6379"
+
+    dental-websocket-nodejs:
+        image: node:10.11-jessie
+        volumes:
+            - ./websocket:/var/www/websocket
+        ports:
+            - "8084:8000"
+        working_dir: /var/www/websocket
+        depends_on:
+            - dental-redis
+        environment:
+            - "REDIS_PORT=6379"
+            - "REDIS_HOST=dental-redis"
+        tty: true
+
+    dental-mailer:
+        image: mailhog/mailhog
+        ports:
+            - "8086:8025"
+
+networks:
+  default:
+    external:
+      name: boonmanagecore_default
